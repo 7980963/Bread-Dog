@@ -1,0 +1,2 @@
+rootProject.name = "bread_dog"
+include ':app'
