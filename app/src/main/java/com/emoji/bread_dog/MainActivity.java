@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         for (String s : files) {
             list.add(new File(file, s));
         }
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,6);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,5);
         recyclerView.setLayoutManager(gridLayoutManager);
         Adapter adapter = new Adapter(list);
         recyclerView.setAdapter(adapter);
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     //bmp缩放
     public static Bitmap bitMapScale(Bitmap bitmap,float scale) {
         Matrix matrix = new Matrix();
-        matrix.postScale(scale,scale);
+        matrix.postScale(1,1);
         Bitmap resizeBmp = Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);
         return resizeBmp;
     }
