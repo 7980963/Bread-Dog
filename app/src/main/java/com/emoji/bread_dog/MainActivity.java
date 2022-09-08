@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         for (String s : files) {
             list.add(new File(file, s));
         }
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,5);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,4);
         recyclerView.setLayoutManager(gridLayoutManager);
         Adapter adapter = new Adapter(list);
         recyclerView.setAdapter(adapter);

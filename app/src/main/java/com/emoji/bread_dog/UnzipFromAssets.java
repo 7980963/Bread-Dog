@@ -36,7 +36,7 @@ public class UnzipFromAssets {
         ZipInputStream zipInputStream = new ZipInputStream(inputStream);
         // 读取一个进入点
         ZipEntry zipEntry = zipInputStream.getNextEntry();
-        // 使用1Mbuffer
+        // 使用1M buffer
         byte[] buffer = new byte[1024 * 1024];
         // 解压时字节计数
         int count = 0;
