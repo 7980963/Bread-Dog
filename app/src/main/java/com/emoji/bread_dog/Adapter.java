@@ -20,9 +20,9 @@ import com.bumptech.glide.Glide;
 import java.io.File;
 import java.util.List;
 
-import static com.emoji.bread_dog.MainActivity.bitMapScale;
-import static com.emoji.bread_dog.MainActivity.save;
-import static com.emoji.bread_dog.MainActivity.share;
+import static com.emoji.bread_dog.Utils.bitMapScale;
+import static com.emoji.bread_dog.Utils.save;
+import static com.emoji.bread_dog.Utils.share;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
     private Context context;
