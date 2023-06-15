@@ -34,5 +34,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     implementation files('..\\libs\\ant-1.10.12.jar')
+
     implementation 'org.apache.commons:commons-compress:1.22'
+    implementation 'com.github.getActivity:TitleBar:10.5'
 }
