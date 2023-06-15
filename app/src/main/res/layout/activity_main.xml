@@ -8,6 +8,7 @@
     tools:context=".MainActivity"
     >
 
+
     <LinearLayout
         android:id="@+id/load_view"
         android:gravity="center"

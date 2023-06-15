@@ -5,14 +5,21 @@
     android:gravity="center"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
     <ImageView
         android:scaleType="centerCrop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/item_img"/>
-
+    <TextView
+        android:id="@+id/item_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:padding="2dp"/>
 
 
 </LinearLayout>

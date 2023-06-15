@@ -9,7 +9,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/java/bread_dog/app/src/main/res/layout/activity_main.xml" value="0.22135416666666666" />
-        <entry key="..\:/java/bread_dog/app/src/main/res/layout/dialog.xml" value="0.22135416666666666" />
+        <entry key="..\:/java/bread_dog/app/src/main/res/layout/dialog.xml" value="0.25" />
+        <entry key="..\:/java/bread_dog/app/src/main/res/layout/item.xml" value="0.22083333333333333" />
       </map>
     </option>
   </component>

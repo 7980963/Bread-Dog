@@ -1,2 +1,4 @@
 rootProject.name = "bread_dog"
 include ':app'
+include ':library'
+include ':library'

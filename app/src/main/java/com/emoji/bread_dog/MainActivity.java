@@ -1,28 +1,39 @@
 package com.emoji.bread_dog;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.FileProvider;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.OutputStream;
+import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class MainActivity extends AppCompatActivity {
     LinearLayout linearLayout;
@@ -39,58 +50,55 @@ public class MainActivity extends AppCompatActivity {
         if(file.exists()){
             initList();
         } else {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        UnzipFromAssets.unZip(MainActivity.this, "image.zip", file.getPath(), true);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                initList();
-                            }
-                        });
-                    } catch (Exception e){
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                Toast.makeText(MainActivity.this,"资源释放失败，请重试",Toast.LENGTH_LONG).show();
-                            }
-                        });
-                    }
+            new Thread(() -> {
+                try {
+                    UnzipFromAssets.unZip(MainActivity.this, "image.zip", file.getPath(), true);
+                    runOnUiThread(this::initList);
+                } catch (Exception e) {
+                    //runOnUiThread(() -> Toast.makeText(MainActivity.this, "资源释放失败，请重试", Toast.LENGTH_LONG).show());
+                    runOnUiThread(() -> Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_LONG).show());
                 }
-            }).run();
+            }).start();
         }
     }
 
     private void initList(){
-        File file = new File(getCacheDir(),"img");
-        String[] files = arraySort(Objects.requireNonNull(file.list()));
+        File file = new File(getCacheDir(),"img"); String[] files = arraySort(Objects.requireNonNull(file.list()));
         for (String s : files) {
             list.add(new File(file, s));
         }
+
+        // 创建针对中文的Collator实例
+        Collator collator = Collator.getInstance(Locale.CHINA);
+
+        // 使用Collator比较文件名进行排序
+        list.clear();
+        Arrays.sort(files, collator::compare);
+        for (String s : files) {
+            if(list.isEmpty() || !list.get(list.size()-1).getName().equals(s)) {
+                list.add(new File(file, s));
+            }
+        }
+
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this,5);
         recyclerView.setLayoutManager(gridLayoutManager);
         Adapter adapter = new Adapter(list);
         recyclerView.setAdapter(adapter);
         linearLayout.setVisibility(View.GONE);
         recyclerView.setVisibility(View.VISIBLE);
+
     }
 
     public static String[] arraySort(String[] input){
-        for (int i=0;i<input.length-1;i++){
-            for (int j=0;j<input.length-i-1;j++) {
-                if(input[j].compareTo(input[j+1])>0){
-                    String temp=input[j];
-                    input[j]=input[j+1];
-                    input[j+1]=temp;
-                }
-            }
-        }
+        for (int i = 0; i < input.length - 1; i++) {
+            for (int j = 0; j < input.length - i - 1; j++) {
+                if (input[j].compareTo(input[j + 1]) > 0) {
+                    String temp = input[j]; input[j] = input[j + 1]; input[j + 1] = temp;
+                } } }
         return input;
     }
 
-
+    //bmp缩放
     //bmp缩放
     public static Bitmap bitMapScale(Bitmap bitmap,float scale) {
         Matrix matrix = new Matrix();
@@ -99,17 +107,12 @@ public class MainActivity extends AppCompatActivity {
         return resizeBmp;
     }
 
+
     public static void share(Context context, File file, int type){
         Uri uri;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            uri = FileProvider.getUriForFile(context, context.getPackageName()+".FileProvider", file);
-        } else {
-            uri = Uri.fromFile(file);
-        }
+        uri = FileProvider.getUriForFile(context, context.getPackageName()+".FileProvider", file);
         Intent intent = new Intent(Intent.ACTION_SEND);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION| Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-        }
+        intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION| Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
         intent.setType(context.getContentResolver().getType(uri));
         intent.putExtra(Intent.EXTRA_STREAM,uri);
         switch (type){
@@ -136,11 +139,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         Uri uri;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            uri = FileProvider.getUriForFile(context, context.getPackageName()+".FileProvider", file);
-        } else {
-            uri = Uri.fromFile(file);
-        }
+        uri = FileProvider.getUriForFile(context, context.getPackageName()+".FileProvider", file);
         intent.setType(context.getContentResolver().getType(uri));
         intent.putExtra(Intent.EXTRA_TITLE, file.getName());
         context.startActivityForResult(intent, requestCode);
@@ -156,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     FileInputStream inputStream = new FileInputStream(file);
                     OutputStream outputStream = getContentResolver().openOutputStream(uri);
-                    int i = 0;
+                    int i;
                     byte[] bytes = new byte[1024];
                     while ((i = inputStream.read(bytes)) != -1) {
                         outputStream.write(bytes, 0, i);
