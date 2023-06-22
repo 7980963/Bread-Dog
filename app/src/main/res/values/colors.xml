@@ -7,4 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="clear">#00000000</color>
+
+    <color name="colorPrimary">#38ACFF</color>
+    <color name="colorPrimaryDark">#38ACFF</color>
+    <color name="colorAccent">#e6e6e6</color>
+    <color name="colorGray">#55888888</color>
+
+    <color name="drawer_selected_background">#6ED8FF</color> <!-- 定义选中项的背景颜色，这里使用红色 -->
+    <color name="drawer_selected_text">#0095FF</color> <!-- 定义选中项的文字颜色，这里使用白色 -->
 </resources>

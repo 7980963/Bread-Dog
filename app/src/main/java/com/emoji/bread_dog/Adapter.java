@@ -24,11 +24,11 @@ import static com.emoji.bread_dog.Utils.bitMapScale;
 import static com.emoji.bread_dog.Utils.save;
 import static com.emoji.bread_dog.Utils.share;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
+public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     private Context context;
     private final List<File> list;
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         LinearLayout linearLayout;
         ImageView imageView;
 
@@ -54,7 +54,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
         holder.linearLayout.setOnClickListener(v -> {
             int position = holder.getAdapterPosition();
             File file = list.get(position);
-            View root = LayoutInflater.from(context).inflate(R.layout.dialog,null);
+            View root = LayoutInflater.from(context).inflate(R.layout.dialog, null);
             TextView textView = root.findViewById(R.id.dialog_text);
             ImageView img = root.findViewById(R.id.dialog_img);
             ImageButton btnQQ = root.findViewById(R.id.dialog_qq);
@@ -65,23 +65,23 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
             AlertDialog dialog = new AlertDialog.Builder(context).setView(root).create();
             btnShare.setOnClickListener(view1 -> {
                 dialog.dismiss();
-                share(context,file,0);
+                share(context, file, 0);
             });
             btnQQ.setOnClickListener(view12 -> {
                 dialog.dismiss();
-                share(context,file,1);
+                share(context, file, 1);
             });
             btnWechat.setOnClickListener(view12 -> {
                 dialog.dismiss();
-                share(context,file,2);
+                share(context, file, 2);
             });
             btnTim.setOnClickListener(view12 -> {
                 dialog.dismiss();
-                share(context,file,3);
+                share(context, file, 3);
             });
             btnSave.setOnClickListener(view12 -> {
                 dialog.dismiss();
-                save((Activity) context,file,position);
+                save((Activity) context, file, position);
             });
             textView.setText(file.getName());
             Glide.with(context).load(file).into(img);
@@ -91,9 +91,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         File file = list.get(position);
-        holder.imageView.setImageBitmap(bitMapScale(BitmapFactory.decodeFile(file.getPath()), 2.6f));
+        holder.imageView.setImageBitmap(bitMapScale(BitmapFactory.decodeFile(file.getPath())));
         String fileName = file.getName().substring(0, file.getName().lastIndexOf(".")); // 获取不带扩展名的文件名
         TextView textView = holder.linearLayout.findViewById(R.id.item_text); // 获取TextView
         textView.setText(fileName); // 设置TextView的文本
@@ -102,5 +102,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
     @Override
     public int getItemCount() {
         return list.size();
+    }
+    @SuppressWarnings("NotifyDataSetChanged")
+    public void updateList(List<File> newList) {
+        list.clear();
+        list.addAll(newList);
+        notifyDataSetChanged();
     }
 }

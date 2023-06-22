@@ -8,7 +8,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/git/bread_dog/app/src/main/res/drawable/badge_bg.xml" value="0.1" />
+        <entry key="..\:/git/bread_dog/app/src/main/res/drawable/ic_android_fill.xml" value="0.1" />
+        <entry key="..\:/git/bread_dog/app/src/main/res/drawable/ic_github_line.xml" value="0.1" />
+        <entry key="..\:/git/bread_dog/app/src/main/res/drawable/ic_head.xml" value="0.1" />
+        <entry key="..\:/git/bread_dog/app/src/main/res/drawable/ic_launcher_background.xml" value="0.128" />
+        <entry key="..\:/git/bread_dog/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.128" />
+        <entry key="..\:/git/bread_dog/app/src/main/res/drawable/ic_out.xml" value="0.131" />
+        <entry key="..\:/git/bread_dog/app/src/main/res/drawable/ic_qq_fill.xml" value="0.128" />
+        <entry key="..\:/git/bread_dog/app/src/main/res/drawable/ic_setting.xml" value="0.131" />
+        <entry key="..\:/git/bread_dog/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/git/bread_dog/app/src/main/res/layout/bage_hint.xml" value="0.11614583333333334" />
         <entry key="..\:/git/bread_dog/app/src/main/res/layout/dialog.xml" value="0.11614583333333334" />
+        <entry key="..\:/git/bread_dog/app/src/main/res/layout/item.xml" value="0.1" />
+        <entry key="..\:/git/bread_dog/app/src/main/res/layout/navigationview_header.xml" value="0.11614583333333334" />
+        <entry key="..\:/git/bread_dog/app/src/main/res/layout/vip_view.xml" value="0.1" />
+        <entry key="..\:/git/bread_dog/app/src/main/res/menu/menu_navigation.xml" value="0.2" />
         <entry key="..\:/java/bread_dog/app/src/main/res/layout/activity_main.xml" value="0.22135416666666666" />
         <entry key="..\:/java/bread_dog/app/src/main/res/layout/dialog.xml" value="0.25" />
         <entry key="..\:/java/bread_dog/app/src/main/res/layout/item.xml" value="0.22083333333333333" />
