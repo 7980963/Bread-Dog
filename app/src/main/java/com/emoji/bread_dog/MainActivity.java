@@ -2,8 +2,10 @@ package com.emoji.bread_dog;
 
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -43,6 +45,26 @@ public class MainActivity extends AppCompatActivity {
 
         linearLayout = findViewById(R.id.load_view);
         recyclerView = findViewById(R.id.recycler_view);
+        Button Jump_Github = findViewById(R.id.footer_item_github);
+        Jump_Github.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 定义要跳转的URL
+                String url = "https://github.com/7980963/Bread-Dog";
+
+                // 创建Intent对象，并设置Action为ACTION_VIEW
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+
+                // 将URL字符串解析为Uri对象，并设置给Intent
+                Uri uri = Uri.parse(url);
+                intent.setData(uri);
+
+                // 启动Intent
+                startActivity(intent);
+
+
+            }
+        });
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         NavigationView navigationView = findViewById(R.id.navigation_view);
