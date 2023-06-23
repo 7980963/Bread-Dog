@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -28,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     LinearLayout linearLayout;
     RecyclerView recyclerView;
-    List<File> list = new ArrayList<>();
+    List list = new ArrayList<>();
     File file;
 
     @Override
@@ -48,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         NavigationView navigationView = findViewById(R.id.navigation_view);
         final DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        navigationView.setCheckedItem(R.id.single_1);
+        //navigationView.setCheckedItem(R.id.single_1);
         setSupportActionBar(toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, 0, 0);
@@ -59,8 +58,7 @@ public class MainActivity extends AppCompatActivity {
         View headerView = navigationView.getHeaderView(0);
         ImageView imageView = headerView.findViewById(R.id.iv_head);
         imageView.setImageResource(R.drawable.image1);
-        TextView textView = headerView.findViewById(R.id.iv_text);
-        imageView.setOnClickListener(v -> Toast.makeText(getApplicationContext(), "点击了头像", Toast.LENGTH_LONG).show());
+        imageView.setOnClickListener(v -> Toast.makeText(getApplicationContext(), "不吃你别扒拉(╯‵□′)╯︵┻━┻", Toast.LENGTH_LONG).show());
         navigationView.setNavigationItemSelectedListener(menuItem -> false);
         ColorStateList csl = ContextCompat.getColorStateList(this, R.color.nav_menu_text_color);
         navigationView.setItemTextColor(csl);
@@ -77,16 +75,28 @@ public class MainActivity extends AppCompatActivity {
                 toolbar.setTitle("小肥柴");
             } else if (menuItem.getItemId() == R.id.single_3) {
                 // 运行与按钮3相关的代码
-                showImage("3_恶魔猫.zip");
-                toolbar.setTitle("恶魔猫");
+                showImage("3_什么猫.zip");
+                toolbar.setTitle("什么猫");
             } else if (menuItem.getItemId() == R.id.single_4) {
                 // 运行与按钮1相关的代码
-                showImage("4_真的是小恐龙吗.zip");
-                toolbar.setTitle("真的是小恐龙吗");
+                showImage("4_恶魔猫.zip");
+                toolbar.setTitle("恶魔猫");
             } else if (menuItem.getItemId() == R.id.single_5) {
                 // 运行与按钮2相关的代码
-                showImage("5_新鲜动物园.zip");
+                showImage("5_真的是小恐龙吗.zip");
+                toolbar.setTitle("真的是小恐龙吗");
+            } else if (menuItem.getItemId() == R.id.single_6) {
+                // 运行与按钮2相关的代码
+                showImage("6_星有野.zip");
+                toolbar.setTitle("星有野");
+            } else if (menuItem.getItemId() == R.id.single_7) {
+                // 运行与按钮2相关的代码
+                showImage("7_新鲜动物园.zip");
                 toolbar.setTitle("新鲜动物园");
+            } else if (menuItem.getItemId() == R.id.single_8) {
+                // 运行与按钮2相关的代码
+                showImage("8_FleshEmoji.zip");
+                toolbar.setTitle("FleshEmoji");
             }
             return true;
         });

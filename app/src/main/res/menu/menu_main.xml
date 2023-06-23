@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_toggle_gif_animation"
+        android:icon="@drawable/qq"
+        android:title="Toggle Gif Animation" />
+</menu>

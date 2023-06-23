@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="150dp"
     android:background="@color/colorPrimary">
@@ -20,12 +21,13 @@
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginBottom="10dp"
-        android:text="Made By——7980963"
+        android:text="By 7980963"
         android:id="@+id/iv_text"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_head" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_head"
+        tools:ignore="HardcodedText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

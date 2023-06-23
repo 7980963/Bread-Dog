@@ -36,6 +36,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             super(view);
             linearLayout = (LinearLayout) view;
             imageView = view.findViewById(R.id.item_img);
+
+            // 设置图片固定大小为240x240像素
+            int imageSize = 240; // 设置图片大小（宽度和高度）
+            ViewGroup.LayoutParams params = imageView.getLayoutParams();
+            params.width = imageSize;
+            params.height = imageSize;
+            imageView.setLayoutParams(params);
         }
     }
 
@@ -93,7 +100,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         File file = list.get(position);
-        holder.imageView.setImageBitmap(bitMapScale(BitmapFactory.decodeFile(file.getPath())));
+        holder.imageView.setImageBitmap(BitmapFactory.decodeFile(file.getPath()));
         String fileName = file.getName().substring(0, file.getName().lastIndexOf(".")); // 获取不带扩展名的文件名
         TextView textView = holder.linearLayout.findViewById(R.id.item_text); // 获取TextView
         textView.setText(fileName); // 设置TextView的文本

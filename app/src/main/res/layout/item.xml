@@ -20,6 +20,4 @@
         android:textColor="@android:color/black"
         android:gravity="center"
         android:padding="2dp"/>
-
-
 </LinearLayout>

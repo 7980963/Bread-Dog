@@ -14,6 +14,6 @@
     <color name="colorAccent">#e6e6e6</color>
     <color name="colorGray">#55888888</color>
 
-    <color name="drawer_selected_background">#6ED8FF</color> <!-- 定义选中项的背景颜色，这里使用红色 -->
-    <color name="drawer_selected_text">#0095FF</color> <!-- 定义选中项的文字颜色，这里使用白色 -->
+    <color name="selected_menu_text_color">#0095FF</color> <!-- 设置文本颜色 -->
+    <color name="menu_background_color">#6ED8FF</color> <!-- 设置背景颜色 -->
 </resources>
