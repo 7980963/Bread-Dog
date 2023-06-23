@@ -100,7 +100,7 @@
                 android:drawablePadding="1dp"
                 android:gravity="center"
                 android:paddingLeft="5dp"
-                android:text="设置"
+                android:text="Github链接"
                 android:textAlignment="inherit"
                 android:textColor="@color/colorPrimary"/>
         </LinearLayout>
