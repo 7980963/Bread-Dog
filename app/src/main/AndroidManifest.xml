@@ -29,7 +29,7 @@
         </activity>
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.FileProvider"
+            android:authorities="com.emoji.bread_dog.FileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

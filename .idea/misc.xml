@@ -8,6 +8,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/git/Bread-Dog/app/src/main/res/drawable/ic_github.xml" value="0.1" />
+        <entry key="..\:/git/Bread-Dog/app/src/main/res/drawable/ic_setting.xml" value="0.1" />
+        <entry key="..\:/git/Bread-Dog/app/src/main/res/drawable/ripple.xml" value="0.148" />
+        <entry key="..\:/git/Bread-Dog/app/src/main/res/drawable/ripple_background.xml" value="0.148" />
+        <entry key="..\:/git/Bread-Dog/app/src/main/res/drawable/ripple_button.xml" value="0.148" />
+        <entry key="..\:/git/Bread-Dog/app/src/main/res/layout/activity_main.xml" value="0.159375" />
+        <entry key="..\:/git/Bread-Dog/app/src/main/res/layout/dialog.xml" value="0.1" />
+        <entry key="..\:/git/Bread-Dog/app/src/main/res/layout/navigationview_header.xml" value="0.159375" />
+        <entry key="..\:/git/Bread-Dog/app/src/main/res/menu/menu_navigation.xml" value="0.1" />
         <entry key="..\:/git/bread_dog/app/src/main/res/drawable/badge_bg.xml" value="0.1" />
         <entry key="..\:/git/bread_dog/app/src/main/res/drawable/ic_android_fill.xml" value="0.1" />
         <entry key="..\:/git/bread_dog/app/src/main/res/drawable/ic_github_line.xml" value="0.1" />

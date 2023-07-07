@@ -73,7 +73,8 @@ public class Utils {
         uri = FileProvider.getUriForFile(context, context.getPackageName()+".FileProvider", file);
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION| Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-        intent.setType(context.getContentResolver().getType(uri));
+        //intent.setType(context.getContentResolver().getType(uri));
+        intent.setType("image/*");
         intent.putExtra(Intent.EXTRA_STREAM,uri);
         switch (type){
             case 1:

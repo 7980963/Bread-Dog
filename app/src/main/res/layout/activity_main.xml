@@ -8,14 +8,14 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
-    <!--主页内容-->
+    <!-- 主页内容 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".MainActivity">
 
-        <!--标题栏样式一-->
+        <!-- 标题栏样式一 -->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -27,51 +27,39 @@
             app:titleTextColor="@android:color/white">
         </androidx.appcompat.widget.Toolbar>
 
-        <!--主页内容-->
+        <!-- 主页内容 -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <FrameLayout
+            <LinearLayout
+                android:id="@+id/load_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:orientation="horizontal">
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-                    <LinearLayout
-                        android:id="@+id/load_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/loading_text" />
+            </LinearLayout>
 
-                        <ProgressBar
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="资源加载中" />
-                    </LinearLayout>
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recycler_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:visibility="gone" />
-
-                </LinearLayout>
-
-            </FrameLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
-    <!--侧边栏内容-->
+    <!-- 侧边栏内容 -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="250dp"
@@ -81,28 +69,79 @@
         app:insetForeground="@android:color/transparent"
         app:menu="@menu/menu_navigation">
 
-        <!--添加脚布局-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_gravity="bottom"
-            android:gravity="center"
-            android:orientation="horizontal">
-            <Button
-                android:id="@+id/footer_item_github"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- navigationview_header -->
+            <include layout="@layout/navigationview_header" />
+
+            <!-- 填充剩余空间的布局 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:background="@android:color/transparent"
-                android:drawableStart="@drawable/ic_github_line"
-                android:drawableLeft="@drawable/ic_github_line"
-                android:drawablePadding="1dp"
+                android:orientation="vertical">
+
+                <!-- ScrollView -->
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:id="@+id/buttonContainer">
+                    </LinearLayout>
+
+                </ScrollView>
+            </LinearLayout>
+
+            <!-- 添加脚布局 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_gravity="bottom"
                 android:gravity="center"
-                android:paddingLeft="5dp"
-                android:text="Github链接"
-                android:textAlignment="inherit"
-                android:textColor="@color/colorPrimary"/>
+                android:orientation="horizontal"
+                style="?android:attr/buttonBarStyle">
+
+                <Button
+                    android:id="@+id/footer_item_setting"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/ripple"
+                    android:drawableStart="@drawable/ic_setting"
+                    android:drawablePadding="1dp"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:text="@string/button_setting_text"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/colorPrimary"
+                    style="?android:attr/buttonBarButtonStyle"
+                    tools:ignore="RtlSymmetry" />
+
+                <Button
+                    android:id="@+id/footer_item_github"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/ripple"
+                    android:drawableStart="@drawable/ic_github"
+                    android:drawablePadding="1dp"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:text="@string/button_github_text"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/colorPrimary"
+                    style="?android:attr/buttonBarButtonStyle"
+                    tools:ignore="RtlSymmetry" />
+            </LinearLayout>
         </LinearLayout>
 
     </com.google.android.material.navigation.NavigationView>

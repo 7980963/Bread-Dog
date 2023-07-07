@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">一只面包狗</string>
+    <string name="loading_text">资源加载中</string>
+    <string name="button_setting_text">设置</string>
+    <string name="button_github_text">Github</string>
+
 </resources>

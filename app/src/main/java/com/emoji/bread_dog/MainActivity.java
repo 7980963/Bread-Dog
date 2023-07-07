@@ -25,11 +25,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ButtonGenerator.ImageClickListener {
 
     LinearLayout linearLayout;
     RecyclerView recyclerView;
-    List list = new ArrayList<>();
+    List<File> list = new ArrayList<>();
     File file;
 
     @Override
@@ -46,25 +46,27 @@ public class MainActivity extends AppCompatActivity {
         linearLayout = findViewById(R.id.load_view);
         recyclerView = findViewById(R.id.recycler_view);
         Button Jump_Github = findViewById(R.id.footer_item_github);
-        Jump_Github.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 定义要跳转的URL
-                String url = "https://github.com/7980963/Bread-Dog";
+        Button button_setting = findViewById(R.id.footer_item_setting);
 
-                // 创建Intent对象，并设置Action为ACTION_VIEW
-                Intent intent = new Intent(Intent.ACTION_VIEW);
+        LinearLayout buttonContainer;
+        ButtonGenerator buttonGenerator;
 
-                // 将URL字符串解析为Uri对象，并设置给Intent
-                Uri uri = Uri.parse(url);
-                intent.setData(uri);
+        Jump_Github.setOnClickListener(v -> {
+            // 定义要跳转的URL
+            String url = "https://github.com/7980963/Bread-Dog";
 
-                // 启动Intent
-                startActivity(intent);
+            // 创建Intent对象，并设置Action为ACTION_VIEW
+            Intent intent = new Intent(Intent.ACTION_VIEW);
 
+            // 将URL字符串解析为Uri对象，并设置给Intent
+            Uri uri = Uri.parse(url);
+            intent.setData(uri);
 
-            }
+            // 启动Intent
+            startActivity(intent);
         });
+
+        button_setting.setOnClickListener(V -> Toast.makeText(getApplicationContext(), "前面的区域，以后再来探索吧！", Toast.LENGTH_SHORT).show());
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         NavigationView navigationView = findViewById(R.id.navigation_view);
@@ -79,53 +81,30 @@ public class MainActivity extends AppCompatActivity {
         //添加头布局和尾布局
         View headerView = navigationView.getHeaderView(0);
         ImageView imageView = headerView.findViewById(R.id.iv_head);
-        imageView.setImageResource(R.drawable.image1);
+        imageView.setImageResource(R.mipmap.image01);
         imageView.setOnClickListener(v -> Toast.makeText(getApplicationContext(), "不吃你别扒拉(╯‵□′)╯︵┻━┻", Toast.LENGTH_LONG).show());
         navigationView.setNavigationItemSelectedListener(menuItem -> false);
         ColorStateList csl = ContextCompat.getColorStateList(this, R.color.nav_menu_text_color);
         navigationView.setItemTextColor(csl);
         navigationView.setItemIconTintList(null);
-        navigationView.setNavigationItemSelectedListener(menuItem -> {
-            drawer.closeDrawers();
-            if (menuItem.getItemId() == R.id.single_1) {
-                // 运行与按钮1相关的代码
-                showImage("1_小二柴.zip");
-                toolbar.setTitle("小二柴");
-            } else if (menuItem.getItemId() == R.id.single_2) {
-                // 运行与按钮2相关的代码
-                showImage("2_小肥柴.zip");
-                toolbar.setTitle("小肥柴");
-            } else if (menuItem.getItemId() == R.id.single_3) {
-                // 运行与按钮3相关的代码
-                showImage("3_什么猫.zip");
-                toolbar.setTitle("什么猫");
-            } else if (menuItem.getItemId() == R.id.single_4) {
-                // 运行与按钮1相关的代码
-                showImage("4_恶魔猫.zip");
-                toolbar.setTitle("恶魔猫");
-            } else if (menuItem.getItemId() == R.id.single_5) {
-                // 运行与按钮2相关的代码
-                showImage("5_真的是小恐龙吗.zip");
-                toolbar.setTitle("真的是小恐龙吗");
-            } else if (menuItem.getItemId() == R.id.single_6) {
-                // 运行与按钮2相关的代码
-                showImage("6_星有野.zip");
-                toolbar.setTitle("星有野");
-            } else if (menuItem.getItemId() == R.id.single_7) {
-                // 运行与按钮2相关的代码
-                showImage("7_新鲜动物园.zip");
-                toolbar.setTitle("新鲜动物园");
-            } else if (menuItem.getItemId() == R.id.single_8) {
-                // 运行与按钮2相关的代码
-                showImage("8_FleshEmoji.zip");
-                toolbar.setTitle("FleshEmoji");
-            }
-            return true;
-        });
-        showImage("1_小二柴.zip");
+        showImage("01_小二柴.zip");
+
+        buttonContainer = findViewById(R.id.buttonContainer);
+        toolbar = findViewById(R.id.toolbar);
+
+        buttonGenerator = new ButtonGenerator(this, buttonContainer, toolbar, this);
+        buttonGenerator.setImageClickListener(this);
+        buttonGenerator.generateButtons();
+    }
+
+    @Override
+    public void onImageClick(String fileName) {
+        // 处理按钮点击事件
+        showImage(fileName);
     }
 
     private void showImage(String zipFileName) {
+        // 在这里处理解压缩的逻辑
         if (file.exists()) {
             deleteDirectory(file);
         }
@@ -133,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
         new Thread(() -> {
             try {
                 Utils.unZip(MainActivity.this, zipFileName, file.getPath(), true);
+                // 这里添加你希望执行的代码
                 runOnUiThread(this::initList);
             } catch (Exception e) {
                 runOnUiThread(() -> Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_LONG).show());
