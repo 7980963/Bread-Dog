@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/dialog_text"
+        android:textColor="#ff000000"
+        android:textSize="18sp"
+        android:layout_marginStart="15dip"
+        android:layout_marginTop="15dip"
+        android:layout_marginBottom="15dip"
+        android:layout_marginEnd="15dip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        android:gravity="center" >
+        <ImageView
+            android:layout_width="200dip"
+            android:layout_height="200dip"
+            android:id="@+id/dialog_img"
+            android:contentDescription="@string/navigation_show" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_marginBottom="3dip">
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:orientation="vertical"
+            android:id="@+id/dialog_qq"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="0dip"
+            android:background="@drawable/ripple">
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:scaleType="fitCenter"
+                    android:layout_marginTop="11dp"
+                    android:src="@drawable/ic_qq"
+                    android:layout_gravity="top|center"
+                    android:text="@string/str_qq"
+                    android:contentDescription="@string/str_qq" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_qq"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/ripple_color"
+                    android:textSize="12sp"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:orientation="vertical"
+            android:id="@+id/dialog_wechat"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="60dip"
+            android:background="@drawable/ripple">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:scaleType="fitCenter"
+                android:layout_marginTop="11dp"
+                android:src="@drawable/ic_wechat"
+                android:layout_gravity="top|center"
+                android:text="@string/str_wechat"
+                android:contentDescription="@string/str_wechat" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/str_wechat"
+                android:layout_gravity="bottom|center"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/ripple_color"
+                android:textSize="12sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:orientation="vertical"
+            android:id="@+id/dialog_tim"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="120dip"
+            android:background="@drawable/ripple">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:scaleType="fitCenter"
+                android:layout_marginTop="11dp"
+                android:src="@drawable/ic_tim"
+                android:layout_gravity="top|center"
+                android:text="@string/str_tim"
+                android:contentDescription="@string/str_tim" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/str_tim"
+                android:layout_gravity="bottom|center"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/ripple_color"
+                android:textSize="12sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:orientation="vertical"
+            android:id="@+id/dialog_share"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="180dip"
+            android:background="@drawable/ripple">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:scaleType="fitCenter"
+                android:layout_marginTop="11dp"
+                android:src="@drawable/ic_share"
+                android:layout_gravity="top|center"
+                android:text="@string/str_share"
+                android:contentDescription="@string/str_share" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/str_share"
+                android:layout_gravity="bottom|center"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/ripple_color"
+                android:textSize="12sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:orientation="vertical"
+            android:id="@+id/dialog_save"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dip"
+            android:background="@drawable/ripple">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_save"
+                android:layout_marginTop="11dp"
+                android:layout_gravity="top|center"
+                android:text="@string/str_save"
+                android:contentDescription="@string/str_save" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_marginTop="3dp"
+                android:text="@string/str_save"
+                android:textColor="@color/ripple_color"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

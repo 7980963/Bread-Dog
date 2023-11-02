@@ -1,7 +1,17 @@
 <resources>
     <string name="app_name">一只面包狗</string>
     <string name="loading_text">资源加载中</string>
-    <string name="button_setting_text">设置</string>
-    <string name="button_github_text">Github</string>
-
+    <string name="app_version">Version %1$s %2$s</string>
+    <string name="app_version_debug">(Debug)</string>
+    <string name="app_version_release">(Release)</string>
+    <string name="str_setting">设置</string>
+    <string name="str_github">Github</string>
+    <string name="navigation_show">navigation_show</string>
+    <string name="str_qq">QQ</string>
+    <string name="str_wechat">微信</string>
+    <string name="str_tim">TIM</string>
+    <string name="str_share">分享</string>
+    <string name="str_save">保存</string>
+    <string name="author_info">By 7980963</string>
+    <string name="toggle_gif_animation">Toggle Gif Animation</string>
 </resources>

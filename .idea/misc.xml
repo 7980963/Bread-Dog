@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CMakeSettings">
     <configurations>
@@ -8,14 +7,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/git/Bread-Dog/app/src/main/res/drawable/dialog_toast_bg.xml" value="0.213" />
         <entry key="..\:/git/Bread-Dog/app/src/main/res/drawable/ic_github.xml" value="0.1" />
+        <entry key="..\:/git/Bread-Dog/app/src/main/res/drawable/ic_loading.xml" value="0.212" />
         <entry key="..\:/git/Bread-Dog/app/src/main/res/drawable/ic_setting.xml" value="0.1" />
+        <entry key="..\:/git/Bread-Dog/app/src/main/res/drawable/loading_dialog_bg.xml" value="0.2475" />
         <entry key="..\:/git/Bread-Dog/app/src/main/res/drawable/ripple.xml" value="0.148" />
         <entry key="..\:/git/Bread-Dog/app/src/main/res/drawable/ripple_background.xml" value="0.148" />
         <entry key="..\:/git/Bread-Dog/app/src/main/res/drawable/ripple_button.xml" value="0.148" />
-        <entry key="..\:/git/Bread-Dog/app/src/main/res/layout/activity_main.xml" value="0.159375" />
+        <entry key="..\:/git/Bread-Dog/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/git/Bread-Dog/app/src/main/res/layout/dialog.xml" value="0.1" />
-        <entry key="..\:/git/Bread-Dog/app/src/main/res/layout/navigationview_header.xml" value="0.159375" />
+        <entry key="..\:/git/Bread-Dog/app/src/main/res/layout/item.xml" value="0.22083333333333333" />
+        <entry key="..\:/git/Bread-Dog/app/src/main/res/layout/loading_window_hint.xml" value="0.3333333333333333" />
+        <entry key="..\:/git/Bread-Dog/app/src/main/res/layout/navigation_dialog.xml" value="0.3333333333333333" />
+        <entry key="..\:/git/Bread-Dog/app/src/main/res/layout/navigationview_header.xml" value="0.5" />
+        <entry key="..\:/git/Bread-Dog/app/src/main/res/layout/window_hint.xml" value="0.15625" />
+        <entry key="..\:/git/Bread-Dog/app/src/main/res/menu/menu_main.xml" value="0.22083333333333333" />
         <entry key="..\:/git/Bread-Dog/app/src/main/res/menu/menu_navigation.xml" value="0.1" />
         <entry key="..\:/git/bread_dog/app/src/main/res/drawable/badge_bg.xml" value="0.1" />
         <entry key="..\:/git/bread_dog/app/src/main/res/drawable/ic_android_fill.xml" value="0.1" />
@@ -42,7 +49,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
