@@ -23,14 +23,23 @@
             android:background="@color/colorPrimary"
             app:subtitleTextColor="@android:color/white"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:title="小二柴"
+            app:title="@string/app_name"
             app:titleTextColor="@android:color/white">
         </androidx.appcompat.widget.Toolbar>
+
+        <ProgressBar
+            android:id="@+id/loading_indicator"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:indeterminate="true"
+            android:visibility="invisible" />
 
         <!-- 主页内容 -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
             <LinearLayout
                 android:id="@+id/load_view"
@@ -40,14 +49,21 @@
                 android:orientation="vertical"
                 android:visibility="gone">
 
-                <ProgressBar
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
                 <TextView
+                    android:id="@+id/status_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="24dp"
+                    android:gravity="center"
                     android:text="@string/loading_text" />
+
+                <Button
+                    android:id="@+id/retry_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@android:drawable/ic_popup_sync"
+                    android:text="@string/retry"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -65,7 +81,6 @@
         android:layout_width="250dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:headerLayout="@layout/navigationview_header"
         app:insetForeground="@android:color/transparent"
         app:menu="@menu/menu_navigation">
 
